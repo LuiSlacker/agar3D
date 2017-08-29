@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
+	public GameObject target;
 
 	private Rigidbody rb;
 
@@ -18,10 +19,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
-
-		Vector3 movement = new Vector3 (moveHorizontal, 0f, moveVertical);
-		rb.AddForce (movement * speed);
+		rb.AddForce(Input.GetAxis("Vertical") * target.transform.forward * speed);
+		rb.AddForce(Input.GetAxis("Horizontal") * target.transform.right * speed);
 	}
 }
