@@ -258,7 +258,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -288,9 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478ba9262f2854031a9c1e8849336c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1886705484}
-  a: 0
-  b: 0
+  target: {fileID: 1886705488}
+  turnSpeed: 4
 --- !u!1 &952161250
 GameObject:
   m_ObjectHideFlags: 0
