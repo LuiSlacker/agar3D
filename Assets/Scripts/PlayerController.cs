@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed;
 	public GameObject target;
+	public GameObject puerta;
+
+
+	private int enemyCount;
 
 	private Rigidbody rb;
 
@@ -15,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
+		if(enemyCount == 2) {
+			puerta.SetActive (false);
+		}
 	}
 
 	void FixedUpdate() {
@@ -25,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("enemy")) {
 			other.gameObject.SetActive (false);
+			enemyCount++;
 			transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
 		}
 	}
