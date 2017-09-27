@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject Enemy;
+
 	void Start () {
 		
 	}
