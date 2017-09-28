@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed;
 	public GameObject target;
-	public GameObject puerta;
+	public GameObject puerta01, puerta02;
 
 
 	private int enemyCount;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update () {
 		if(enemyCount == 2) {
-			puerta.SetActive (false);
+			puerta01.SetActive (false);
 		}
 	}
 
