@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public GameObject target;
 	public GameObject puerta01, puerta02;
-
+	public int NumEnemy;
 
 	private int enemyCount;
 
@@ -19,8 +19,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
-		if(enemyCount == 2) {
+		if(enemyCount == NumEnemy) { // abrir puerta 01
 			puerta01.SetActive (false);
+		}
+		if(enemyCount == NumEnemy * 2) { // abrir puerta 02
+			puerta01.SetActive (true);
+			puerta02.SetActive (false);
 		}
 	}
 
@@ -31,9 +35,11 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("enemy")) {
-			other.gameObject.SetActive (false);
-			enemyCount++;
-			transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
+			if(other.transform.localScale.x < this.transform.localScale.x){
+				other.gameObject.SetActive (false);
+				enemyCount++;
+				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
+			}
 		}
 	}
 }
