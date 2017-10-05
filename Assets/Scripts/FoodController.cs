@@ -9,12 +9,9 @@ public class FoodController : MonoBehaviour {
 	private GameObject foodWrapper;
 	private GameObject player;
 
-	//public GameObject Enemy ;
 	//public GameObject plano1 ,plano2 ,plano3;
-	//public GameObject player;
 	//public int foodCountPlane1 , NumberEnemyPlane2, NumberEnemyPlane3;
 
-	private List<GameObject> foodList = new List<GameObject>();
 
 	public FoodController(GameObject plano1, GameObject foodWrapper, GameObject player, int foodCountPlane1) {
 		this.plano1 = plano1;
@@ -23,7 +20,6 @@ public class FoodController : MonoBehaviour {
 		this.player = player;
 
 		populateFood ();
-		updateIsTriggerFlags ();
 	}
 
 	void populateFood () {
@@ -58,16 +54,16 @@ public class FoodController : MonoBehaviour {
 
 		for (int i = 0 ; i < foodCountPlane1; i++) {
 			Vector3 position = new Vector3(Random.Range(P1_x, P1x), P1y, Random.Range(P1_z, P1z));
-			GameObject gm = Instantiate( foodWrapper , position, Quaternion.identity );
-			gm.tag = "foodWrapper";
+			GameObject foodWrapperGO = Instantiate( foodWrapper , position, Quaternion.identity );
+			foodWrapperGO.tag = "foodWrapper";
+			Transform foodGO = foodWrapperGO.transform.GetChild(0);
 
-			float rd = Random.Range ( 0 , 2 );
-			rd = rd + Random.value;
-			gm.transform.localScale = new Vector3(rd,rd,rd);
-			gm.transform.position = new Vector3 ( gm.transform.localPosition.x , (rd /2) , gm.transform.localPosition.z );
-			foodList.Add (gm);
+			float foodWrapperGOScale = Random.Range (1, 4);
+			foodWrapperGO.transform.localScale = new Vector3(foodWrapperGOScale, foodWrapperGOScale, foodWrapperGOScale);
 
-			Debug.Log ("enemy# "+ i +", plano1: " + position );
+			foodWrapperGO.transform.position = new Vector3 ( foodWrapperGO.transform.localPosition.x , (foodWrapperGOScale - 0.7f)/2.0f , foodWrapperGO.transform.localPosition.z );
+
+			//Debug.Log ("enemy# "+ i +", plano1: " + position );
 		}
 
 		/*for(int i = 0 ; i < NumberEnemyPlane2; i++ ){
@@ -101,17 +97,5 @@ public class FoodController : MonoBehaviour {
 
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void updateIsTriggerFlags() {
-		foreach(GameObject food in foodList) {
-			if (food.transform.localScale.x < player.transform.localScale.x) {
-				food.GetComponent<Collider>().isTrigger = true;
-			}
-		}
-	}
 }

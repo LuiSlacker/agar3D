@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("foodWrapper")) {
 			Transform child = other.gameObject.transform.GetChild(0);
-			bool isFoodSmallerThanPlayer = child.transform.localScale.x < transform.localScale.x;
+			bool isFoodSmallerThanPlayer = child.gameObject.transform.lossyScale.x < transform.lossyScale.x;
+			Debug.Log ("food: " + child.gameObject.transform.lossyScale.x + " , player: " + transform.lossyScale.x);
 			child.GetComponent<Collider>().isTrigger = isFoodSmallerThanPlayer;
 			Debug.Log ("isTrigger of food set to " + isFoodSmallerThanPlayer);
 		}
