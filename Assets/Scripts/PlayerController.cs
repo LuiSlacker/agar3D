@@ -34,7 +34,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag ("enemy")) {
+		if (other.gameObject.CompareTag ("foodWrapper")) {
+			Transform child = other.gameObject.transform.GetChild(0);
+			bool isFoodSmallerThanPlayer = child.transform.localScale.x < transform.localScale.x;
+			child.GetComponent<Collider>().isTrigger = isFoodSmallerThanPlayer;
+			Debug.Log ("isTrigger of food set to " + isFoodSmallerThanPlayer);
+		}
+		if (other.gameObject.CompareTag ("food")) {
 			if(other.transform.localScale.x < this.transform.localScale.x){
 				other.gameObject.SetActive (false);
 				enemyCount++;
