@@ -5,15 +5,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
 	public GameObject plano1;
-	public int foodCountPlane1;
-	public GameObject foodWrapper;
 	public GameObject player;
 
-	public FoodController foodController;
+	public int foodCountPlane1;
+	public int enemyCountPlane1;
+
+	public GameObject foodWrapper;
+	public GameObject enemyWrapper;
+
+	public FoodSpawnController foodController;
+	public EnemySpawnController enemyController;
 
 	// Use this for initialization
 	void Start () {
-		foodController = new FoodController (plano1, foodWrapper, player, foodCountPlane1);
+		foodController = new FoodSpawnController (plano1, foodWrapper, player, foodCountPlane1);
+		enemyController = new EnemySpawnController (plano1, enemyWrapper, player, enemyCountPlane1);
 	}
 	
 	// Update is called once per frame

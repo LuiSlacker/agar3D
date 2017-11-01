@@ -1282,11 +1282,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plano1: {fileID: 952161250}
+  player: {fileID: 1886705484}
   foodCountPlane1: 30
+  enemyCountPlane1: 10
   foodWrapper: {fileID: 1010659791488974, guid: 8e2bf3b7fda0e4d1d8e98c1ceb71c335,
     type: 2}
-  player: {fileID: 1886705484}
+  enemyWrapper: {fileID: 1946852980331590, guid: 5f91e3f4e7966400f8e323c2efbfcd77,
+    type: 2}
   foodController: {fileID: 0}
+  enemyController: {fileID: 0}
 --- !u!4 &775912365
 Transform:
   m_ObjectHideFlags: 0
@@ -3025,7 +3029,7 @@ GameObject:
   - component: {fileID: 1886705490}
   m_Layer: 0
   m_Name: Player
-  m_TagString: enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

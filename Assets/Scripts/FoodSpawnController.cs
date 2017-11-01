@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodController : MonoBehaviour {
+public class FoodSpawnController : MonoBehaviour {
 
 	private GameObject plano1;
 	private int foodCountPlane1;
@@ -13,7 +13,7 @@ public class FoodController : MonoBehaviour {
 	//public int foodCountPlane1 , NumberEnemyPlane2, NumberEnemyPlane3;
 
 
-	public FoodController(GameObject plano1, GameObject foodWrapper, GameObject player, int foodCountPlane1) {
+	public FoodSpawnController(GameObject plano1, GameObject foodWrapper, GameObject player, int foodCountPlane1) {
 		this.plano1 = plano1;
 		this.foodCountPlane1 = foodCountPlane1;
 		this.foodWrapper = foodWrapper;
