@@ -13,13 +13,13 @@ public class GameController : MonoBehaviour {
 	public GameObject foodWrapper;
 	public GameObject enemyWrapper;
 
-	public FoodSpawnController foodController;
-	public EnemySpawnController enemyController;
+	public FoodSpawnController foodSpawnController;
+	public EnemySpawnController enemySpawnController;
 
 	// Use this for initialization
 	void Start () {
-		foodController = new FoodSpawnController (plano1, foodWrapper, player, foodCountPlane1);
-		enemyController = new EnemySpawnController (plano1, enemyWrapper, player, enemyCountPlane1);
+		foodSpawnController = new FoodSpawnController (plano1, foodWrapper, player, foodCountPlane1);
+		enemySpawnController = new EnemySpawnController (plano1, enemyWrapper, player, enemyCountPlane1);
 	}
 	
 	// Update is called once per frame

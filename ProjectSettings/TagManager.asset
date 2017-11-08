@@ -8,6 +8,7 @@ TagManager:
   - foodWrapper
   - food
   - enemyWrapper
+  - GameOver
   layers:
   - Default
   - TransparentFX
