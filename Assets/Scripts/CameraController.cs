@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour {
 	public Transform target;
 	public float turnSpeed = 4.0f;
 
+	private Vector3 initialOffset;
 	private Vector3 offset;
 
 
@@ -15,8 +16,8 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void LateUpdate() {
-		offset = Quaternion.AngleAxis (Input.GetAxis("CameraHorizontal") * turnSpeed, Vector3.up) * offset;
-		transform.position = target.position + offset; 
+		offset = Quaternion.AngleAxis (Input.GetAxis ("CameraHorizontal") * turnSpeed, Vector3.up) * offset;
+		transform.position = target.position + offset * target.transform.lossyScale.x; 
 		transform.LookAt(target.position);
 	}
 		
