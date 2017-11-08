@@ -32,14 +32,13 @@ public class EnemySpawnController : MonoBehaviour {
 
 		for (int i = 0 ; i < enemyCountPlane1; i++) {
 			Vector3 position = new Vector3(Random.Range(P1_x, P1x), P1y, Random.Range(P1_z, P1z));
-			GameObject foodWrapperGO = Instantiate( enemy , position, Quaternion.identity );
-			foodWrapperGO.tag = "enemy";
-			Transform foodGO = foodWrapperGO.transform.GetChild(0);
+			GameObject enemyGO = Instantiate( enemy , position, Quaternion.identity );
+			enemyGO.tag = "enemy";
+			float enemyGOScale = Random.Range (1, 2);
+			enemyGO.transform.localScale = new Vector3(enemyGOScale, enemyGOScale, enemyGOScale);
 
-			float foodWrapperGOScale = Random.Range (1, 4);
-			foodWrapperGO.transform.localScale = new Vector3(foodWrapperGOScale, foodWrapperGOScale, foodWrapperGOScale);
-
-			foodWrapperGO.transform.position = new Vector3 ( foodWrapperGO.transform.localPosition.x , (foodWrapperGOScale - 0.7f)/2.0f , foodWrapperGO.transform.localPosition.z );
+			// make sure enemy is put on the floor
+			enemyGO.transform.position = new Vector3 ( enemyGO.transform.localPosition.x , (enemyGOScale)/2.0f , enemyGO.transform.localPosition.z );
 		}
 	}
 

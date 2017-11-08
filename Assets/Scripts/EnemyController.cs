@@ -22,40 +22,51 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update() {
-		//rotate to look at the object
-		Debug.Log(this.objectToMoveTo);
-		transform.rotation = (this.objectToMoveTo != null)
-			? Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (this.objectToMoveTo.transform.position - transform.position), rotationSpeed * Time.deltaTime)
-			: this.randomRotation;
+
+		if (this.objectToMoveTo != null) {
+			//rotate to look at the object
+			Vector3 positionToMoveTo = this.objectToMoveTo.transform.position;
+			positionToMoveTo.y = transform.position.y;
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (positionToMoveTo - transform.position), rotationSpeed * Time.deltaTime);
+		} else {
+			transform.rotation = this.randomRotation;
+		}
 
 		//move towards the object
 		transform.position += transform.forward * moveSpeed * Time.deltaTime;
 	}
 
 	void OnTriggerEnter(Collider other) {
-//		if (other.gameObject.CompareTag ("foodWrapper") || other.gameObject.CompareTag ("enemyWrapper")) {
-//			Transform child = other.gameObject.transform.GetChild(0);
-//			bool isFoodSmallerThanPlayer = child.gameObject.transform.lossyScale.x < transform.lossyScale.x;
-//			Debug.Log ("food: " + child.gameObject.transform.lossyScale.x + " , player: " + transform.lossyScale.x);
-//			child.GetComponent<Collider>().isTrigger = isFoodSmallerThanPlayer;
-//			Debug.Log ("isTrigger of food set to " + isFoodSmallerThanPlayer);
-//		}
-//		if (other.gameObject.CompareTag ("food") || other.gameObject.CompareTag ("enemy")) {
-//			if(other.transform.localScale.x < this.transform.localScale.x){
-//				other.gameObject.SetActive (false);
-//				other.transform.parent.gameObject.SetActive (false);
-//				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
-//			}
-//		}
-//
-//		if (other.gameObject.CompareTag ("Player")) {
-//			Debug.Log ("Player hit");
-//			if(other.transform.lossyScale.x < this.transform.GetChild(0).lossyScale.x){
-//				other.gameObject.SetActive (false);
-//				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
-//				gameOver ();
-//			}
-//		}
+		if (other.gameObject.CompareTag ("foodWrapper")) {
+			Transform child = other.gameObject.transform.GetChild (0);
+			bool isFoodSmallerThanMe = child.gameObject.transform.lossyScale.x < transform.lossyScale.x;
+			Debug.Log ("food: " + child.gameObject.transform.lossyScale.x + " , player: " + transform.lossyScale.x);
+			child.GetComponent<Collider> ().isTrigger = isFoodSmallerThanMe;
+			Debug.Log ("isTrigger of food set to " + isFoodSmallerThanMe);
+		} else if (other.gameObject.CompareTag ("food")) {
+			if (other.transform.localScale.x < this.transform.localScale.x) {
+				other.gameObject.SetActive (false);
+				other.transform.parent.gameObject.SetActive (false);
+				transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (1.1f, 1.1f, 1.1f));
+				putOnTheGround ();
+			}
+		} else if (other.gameObject.CompareTag ("Player")) {
+			if (other.transform.lossyScale.x < this.transform.lossyScale.x) {
+				other.gameObject.SetActive (false);
+				transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (1.1f, 1.1f, 1.1f));
+				putOnTheGround ();
+			}
+		} else if (other.gameObject.CompareTag ("enemy")) {
+			if (other.transform.localScale.x < this.transform.localScale.x) {
+				other.gameObject.SetActive (false);
+				transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (1.1f, 1.1f, 1.1f));
+				putOnTheGround ();
+			}
+		}
+	}
+
+	private void putOnTheGround() {
+		transform.position = new Vector3 (transform.position.x, transform.lossyScale.x / 2, transform.position.z);
 	}
 
 	private void findAndSetClosestSmallerGameObject() {
@@ -66,13 +77,16 @@ public class EnemyController : MonoBehaviour {
 			float distanceToOtherObject = getDistanceToOtherObject (collider);
 			if(collider.transform.lossyScale.x < this.transform.lossyScale.x
 			&& distanceToOtherObject < minDistance
-				&& collider.gameObject != this.gameObject) {
+			&& collider.gameObject != this.gameObject) {
+				Debug.Log("new closet player set");
 				minDistance = distanceToOtherObject;
 				closestGameObject = collider.gameObject;
 			}
 		}
 		this.objectToMoveTo = closestGameObject;
-		this.randomRotation = Random.rotation;
+		Quaternion newRotation = Random.rotation;
+		newRotation.y = this.transform.position.y;
+		this.randomRotation = newRotation;
 	}
 
 	private float getDistanceToOtherObject(Collider collider) {

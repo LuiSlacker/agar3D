@@ -1431,8 +1431,7 @@ MonoBehaviour:
   enemyCountPlane1: 10
   foodWrapper: {fileID: 1010659791488974, guid: 8e2bf3b7fda0e4d1d8e98c1ceb71c335,
     type: 2}
-  enemyWrapper: {fileID: 1238768439213156, guid: 8b6a684d8023c4617aa0a85451df25ee,
-    type: 2}
+  enemy: {fileID: 1570317045780574, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
   foodSpawnController: {fileID: 0}
   enemySpawnController: {fileID: 0}
 --- !u!4 &775912365
@@ -3388,45 +3387,3 @@ Transform:
   m_Father: {fileID: 1318464517}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2126525867
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643323211096708, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-  m_IsPrefabParent: 0

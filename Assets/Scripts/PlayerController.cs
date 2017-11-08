@@ -48,10 +48,12 @@ public class PlayerController : MonoBehaviour {
 				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
 			}
 		} else if (other.gameObject.CompareTag ("enemy")) {
-			if(other.transform.localScale.x < this.transform.localScale.x){
+			if (other.transform.localScale.x < this.transform.localScale.x) {
 				other.gameObject.SetActive (false);
 				enemyCount++;
-				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
+				transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (1.1f, 1.1f, 1.1f));
+			} else {
+				// gameover
 			}
 		}
 	}
