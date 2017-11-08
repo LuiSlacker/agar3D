@@ -16,13 +16,12 @@ public class EnemyController : MonoBehaviour {
 
 	void Start () {
 		target = GameObject.FindWithTag("Player").transform; //target the player
+
+		// set a new object to move to every 2 seconds
 		InvokeRepeating("findAndSetClosestSmallerGameObject", 0.0f, 2.0f);
 	}
 
 	void Update() {
-		// set a new object to move to every 2 seconds
-
-
 		//rotate to look at the object
 		Debug.Log(this.objectToMoveTo);
 		transform.rotation = (this.objectToMoveTo != null)
@@ -65,7 +64,7 @@ public class EnemyController : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapSphere(transform.position, 15);
 		foreach (Collider collider in colliders) {
 			float distanceToOtherObject = getDistanceToOtherObject (collider);
-			if(collider.transform.lossyScale.x < this.transform.GetChild(0).lossyScale.x
+			if(collider.transform.lossyScale.x < this.transform.lossyScale.x
 			&& distanceToOtherObject < minDistance
 				&& collider.gameObject != this.gameObject) {
 				minDistance = distanceToOtherObject;
@@ -77,7 +76,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	private float getDistanceToOtherObject(Collider collider) {
-		return Vector3.Distance (collider.transform.position, this.transform.GetChild (0).position);
+		return Vector3.Distance (collider.transform.position, this.transform.position);
 	}
 
 	void gameOver() {

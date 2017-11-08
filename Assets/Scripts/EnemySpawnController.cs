@@ -6,15 +6,15 @@ public class EnemySpawnController : MonoBehaviour {
 
 	private GameObject plano1;
 	private int enemyCountPlane1;
-	private GameObject enemyWrapper;
+	private GameObject enemy;
 	private GameObject player;
 
 
 
-	public EnemySpawnController(GameObject plano1, GameObject foodWrapper, GameObject player, int foodCountPlane1) {
+	public EnemySpawnController(GameObject plano1, GameObject enemy, GameObject player, int foodCountPlane1) {
 		this.plano1 = plano1;
 		this.enemyCountPlane1 = foodCountPlane1;
-		this.enemyWrapper = foodWrapper;
+		this.enemy = enemy;
 		this.player = player;
 
 		populateEnemies ();
@@ -32,8 +32,8 @@ public class EnemySpawnController : MonoBehaviour {
 
 		for (int i = 0 ; i < enemyCountPlane1; i++) {
 			Vector3 position = new Vector3(Random.Range(P1_x, P1x), P1y, Random.Range(P1_z, P1z));
-			GameObject foodWrapperGO = Instantiate( enemyWrapper , position, Quaternion.identity );
-			foodWrapperGO.tag = "enemyWrapper";
+			GameObject foodWrapperGO = Instantiate( enemy , position, Quaternion.identity );
+			foodWrapperGO.tag = "enemy";
 			Transform foodGO = foodWrapperGO.transform.GetChild(0);
 
 			float foodWrapperGOScale = Random.Range (1, 4);
