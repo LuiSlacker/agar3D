@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	private EnemySpawnController enemySpawnController;
 	public GameObject foodSpawn;
 	public GameObject enemySpawn;
+	public Text score;
 
 	private int enemyCount;
 
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 				other.gameObject.SetActive (false);
 				other.transform.parent.gameObject.SetActive (false);
 				enemyCount++;
+				score.text = "Score: " + enemyCount * 100;
 				transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.1f,1.1f,1.1f));
 			}
 		} else if (other.gameObject.CompareTag ("enemy")) {

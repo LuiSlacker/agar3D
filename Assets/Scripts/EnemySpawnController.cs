@@ -14,7 +14,7 @@ public class EnemySpawnController : MonoBehaviour {
 	public GameObject player;
 
 	void Start() {
-		InvokeRepeating("populateEnemiesPlane1", 0.0f, 10f);
+		populateEnemiesPlane1 ();
 	}
 
 

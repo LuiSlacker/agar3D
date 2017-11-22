@@ -2861,7 +2861,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score:'
+  m_Text: 'Score: 0'
 --- !u!222 &1425705379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3526,10 +3526,11 @@ MonoBehaviour:
   target: {fileID: 570272230}
   puerta01: {fileID: 1280492889}
   puerta02: {fileID: 1277289768}
-  NumEnemy: 2
+  NumEnemy: 5
   gameoverPanel: {fileID: 500987600}
   foodSpawn: {fileID: 1373847869}
   enemySpawn: {fileID: 1044717983}
+  score: {fileID: 1425705378}
 --- !u!1 &1989114466
 GameObject:
   m_ObjectHideFlags: 0
