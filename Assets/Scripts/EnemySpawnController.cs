@@ -34,7 +34,7 @@ public class EnemySpawnController : MonoBehaviour {
 			Vector3 position = new Vector3(Random.Range(P1_x, P1x), P1y, Random.Range(P1_z, P1z));
 			GameObject enemyGO = Instantiate( enemy , position, Quaternion.identity );
 			enemyGO.tag = "enemy";
-			float enemyGOScale = Random.Range (1, 2);
+			float enemyGOScale = Random.Range (0.2f, 1.1f);
 			enemyGO.transform.localScale = new Vector3(enemyGOScale, enemyGOScale, enemyGOScale);
 
 			// make sure enemy is put on the floor

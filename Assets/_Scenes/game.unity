@@ -3478,7 +3478,7 @@ MonoBehaviour:
   target: {fileID: 570272230}
   puerta01: {fileID: 1280492889}
   puerta02: {fileID: 1277289768}
-  NumEnemy: 10
+  NumEnemy: 2
   gameoverPanel: {fileID: 500987600}
 --- !u!1 &1989114466
 GameObject:

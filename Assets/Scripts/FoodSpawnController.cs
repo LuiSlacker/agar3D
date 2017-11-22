@@ -22,7 +22,7 @@ public class FoodSpawnController : MonoBehaviour {
 		populateFood ();
 	}
 
-	void populateFood () {
+	private void populateFood () {
 
 		Bounds P01 = this.plano1.GetComponent<Renderer> ().bounds;
 		//Bounds P02 = this.plano2.GetComponent<Renderer> ().bounds;
@@ -58,10 +58,11 @@ public class FoodSpawnController : MonoBehaviour {
 			foodWrapperGO.tag = "foodWrapper";
 			Transform foodGO = foodWrapperGO.transform.GetChild(0);
 
-			float foodWrapperGOScale = Random.Range (1, 4);
+			float foodWrapperGOScale = Random.Range (1, 3);
 			foodWrapperGO.transform.localScale = new Vector3(foodWrapperGOScale, foodWrapperGOScale, foodWrapperGOScale);
 
-			foodWrapperGO.transform.position = new Vector3 ( foodWrapperGO.transform.localPosition.x , (foodWrapperGOScale - 0.7f)/2.0f , foodWrapperGO.transform.localPosition.z );
+			Transform food = foodWrapperGO.transform.GetChild(0);
+			foodWrapperGO.transform.position = new Vector3 ( foodWrapperGO.transform.localPosition.x , (food.transform.lossyScale.x)/2.0f , foodWrapperGO.transform.localPosition.z );
 
 			//Debug.Log ("enemy# "+ i +", plano1: " + position );
 		}
