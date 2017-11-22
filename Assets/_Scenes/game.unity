@@ -141,7 +141,7 @@ Transform:
   - {fileID: 1426405846}
   - {fileID: 1277289769}
   m_Father: {fileID: 1554450763}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116057528
 GameObject:
@@ -1399,55 +1399,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 701044695}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &775912363
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 775912365}
-  - component: {fileID: 775912364}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &775912364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 775912363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1d2c30a3fa9446f88dc2e6af50889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plano1: {fileID: 952161250}
-  player: {fileID: 1886705484}
-  foodCountPlane1: 30
-  enemyCountPlane1: 10
-  foodWrapper: {fileID: 1010659791488974, guid: 8e2bf3b7fda0e4d1d8e98c1ceb71c335,
-    type: 2}
-  enemy: {fileID: 1570317045780574, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
-  foodSpawnController: {fileID: 0}
-  enemySpawnController: {fileID: 0}
---- !u!4 &775912365
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 775912363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.22, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &783263952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1808,7 @@ Transform:
   m_LocalScale: {x: 8, y: 1, z: 8}
   m_Children: []
   m_Father: {fileID: 1554450763}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &951190000
 MeshRenderer:
@@ -2158,6 +2109,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004153586}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1044717983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1044717985}
+  - component: {fileID: 1044717984}
+  m_Layer: 0
+  m_Name: EnemySpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1044717984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044717983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d5158681e01412499688bdbfa1ec0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plano1: {fileID: 952161250}
+  plano2: {fileID: 951189998}
+  plano3: {fileID: 253494423}
+  enemyCountPlane1: 10
+  enemyCountPlane2: 10
+  enemyCountPlane3: 10
+  enemy: {fileID: 1570317045780574, guid: 8a92f943de34443fca22869b1ba00d69, type: 2}
+  player: {fileID: 1886705484}
+--- !u!4 &1044717985
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044717983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.22, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075364681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,6 +2712,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1373847869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1373847871}
+  - component: {fileID: 1373847870}
+  m_Layer: 0
+  m_Name: FoodSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1373847870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373847869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d66d50c905fa45fc9515be7ad24f3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plano1: {fileID: 952161250}
+  plano2: {fileID: 951189998}
+  plano3: {fileID: 253494423}
+  foodCountPlane1: 20
+  foodCountPlane2: 15
+  foodCountPlane3: 10
+  foodWrapper: {fileID: 1010659791488974, guid: 8e2bf3b7fda0e4d1d8e98c1ceb71c335,
+    type: 2}
+  player: {fileID: 1886705484}
+--- !u!4 &1373847871
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373847869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.22, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403769313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,8 +3139,8 @@ Transform:
   m_LocalPosition: {x: 100.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 951189999}
   - {fileID: 90373930}
+  - {fileID: 951189999}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3480,6 +3528,8 @@ MonoBehaviour:
   puerta02: {fileID: 1277289768}
   NumEnemy: 2
   gameoverPanel: {fileID: 500987600}
+  foodSpawn: {fileID: 1373847869}
+  enemySpawn: {fileID: 1044717983}
 --- !u!1 &1989114466
 GameObject:
   m_ObjectHideFlags: 0

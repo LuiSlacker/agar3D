@@ -10,22 +10,42 @@ public class PlayerController : MonoBehaviour {
 	public int NumEnemy;
 	public GameObject gameoverPanel;
 
+	private FoodSpawnController foodSpawnController;
+	private EnemySpawnController enemySpawnController;
+	public GameObject foodSpawn;
+	public GameObject enemySpawn;
+
 	private int enemyCount;
 
 	private Rigidbody rb;
 
+	private bool plane2Spawned = false;
+	private bool plane3Spawned = false;
+
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		speed = 10;
+
+		foodSpawnController = foodSpawn.GetComponent<FoodSpawnController>();
+		enemySpawnController = enemySpawn.GetComponent<EnemySpawnController>();
 	}
 
 	void Update () {
-		if(enemyCount == NumEnemy) { // abrir puerta 01
+		if(enemyCount >= NumEnemy) { // abrir puerta 01
 			puerta01.SetActive (false);
+			if (!plane2Spawned) {
+				foodSpawnController.populateFoodPlane2 ();
+				enemySpawnController.populateEnemiesPlane2 ();
+				plane2Spawned = true;
+			}
 		}
-		if(enemyCount == NumEnemy * 2) { // abrir puerta 02
-			puerta01.SetActive (true);
+		if(enemyCount >= NumEnemy * 2) { // abrir puerta 02
 			puerta02.SetActive (false);
+			if (!plane3Spawned) {
+				foodSpawnController.populateFoodPlane3 ();
+				enemySpawnController.populateEnemiesPlane3 ();
+				plane3Spawned = true;
+			}
 		}
 	}
 
