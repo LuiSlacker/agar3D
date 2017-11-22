@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject target;
 	public GameObject puerta01, puerta02;
 	public int NumEnemy;
+	public GameObject gameoverPanel;
 
 	private int enemyCount;
 
@@ -53,8 +54,12 @@ public class PlayerController : MonoBehaviour {
 				enemyCount++;
 				transform.localScale = Vector3.Scale (transform.localScale, new Vector3 (1.1f, 1.1f, 1.1f));
 			} else {
-				// gameover
+				gameOver ();
 			}
 		}
+	}
+
+	void gameOver() {
+		gameoverPanel.SetActive (true);
 	}
 }

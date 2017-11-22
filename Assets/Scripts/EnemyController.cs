@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
 	private Transform target;
-	public GameObject gameoverPanel;
+
 	private int rotationSpeed = 2;
-	private int moveSpeed = 2;
+	private int moveSpeed = 1;
 
 
 	private GameObject objectToMoveTo;
@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update() {
-
 		if (this.objectToMoveTo != null) {
 			//rotate to look at the object
 			Vector3 positionToMoveTo = this.objectToMoveTo.transform.position;
@@ -93,8 +92,4 @@ public class EnemyController : MonoBehaviour {
 		return Vector3.Distance (collider.transform.position, this.transform.position);
 	}
 
-	void gameOver() {
-		target.gameObject.SetActive (false);
-		//gameoverPanel.SetActive (true);
-	}
 }

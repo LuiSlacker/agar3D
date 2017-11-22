@@ -21,9 +21,5 @@ public class GameController : MonoBehaviour {
 		foodSpawnController = new FoodSpawnController (plano1, foodWrapper, player, foodCountPlane1);
 		enemySpawnController = new EnemySpawnController (plano1, enemy, player, enemyCountPlane1);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
