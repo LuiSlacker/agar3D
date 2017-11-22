@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject puerta01, puerta02;
 	public int NumEnemy;
 	public GameObject gameoverPanel;
+	public GameObject pausePanel;
 
 	private FoodSpawnController foodSpawnController;
 	private EnemySpawnController enemySpawnController;
@@ -31,8 +32,17 @@ public class PlayerController : MonoBehaviour {
 		foodSpawnController = foodSpawn.GetComponent<FoodSpawnController>();
 		enemySpawnController = enemySpawn.GetComponent<EnemySpawnController>();
 	}
-
+	int con = 0;
 	void Update () {
+		// trigger pause menu on esc-key pressed
+		if (Input.GetKey (KeyCode.Escape)) {
+			con++;
+			if(con == 5) {
+				pausePanel.SetActive (!pausePanel.active);
+				con = 0;
+			}
+		}
+
 		if(enemyCount >= NumEnemy) { // abrir puerta 01
 			puerta01.SetActive (false);
 			if (!plane2Spawned) {

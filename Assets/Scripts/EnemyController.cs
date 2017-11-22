@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-	private Transform target;
-
 	private int rotationSpeed = 2;
 	private int moveSpeed = 1;
 
@@ -15,7 +13,6 @@ public class EnemyController : MonoBehaviour {
 
 
 	void Start () {
-		target = GameObject.FindWithTag("Player").transform; //target the player
 
 		// set a new object to move to every 2 seconds
 		InvokeRepeating("findAndSetClosestSmallerGameObject", 0.0f, 2.0f);
